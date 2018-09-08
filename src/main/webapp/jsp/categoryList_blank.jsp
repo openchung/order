@@ -6,12 +6,12 @@
 %>
 <html>
 <head>
-	<title>菜品分类</title>
+	<title>餐點分類</title>
 </head>
 
 <body>
 	<SCRIPT LANGUAGE="JavaScript1.2">
-		adTime=5;  //关闭窗口等待的时间
+		adTime=5;  //關閉視窗等待
 		chanceAd=1;
 		var ns=(document.layers);
 		var ie=(document.all);
@@ -48,10 +48,10 @@
 		}
 		onload=initAd;
 	</script>
-	<h2>菜品分类</h2>
-	<input type = "button" value = "添加菜品分类" onclick="window.location.href='/addCategory'">
+	<h2>餐點分類</h2>
+	<input type = "button" value = "增加餐點分類" onclick="window.location.href='/addCategory'">
 	&nbsp;|&nbsp;
-	<input type = "button" value = "返回主菜单" onclick="window.location.href='/showMenus'">
+	<input type = "button" value = "返回Main Menu" onclick="window.location.href='/showMenus'">
 	<%
 		if(errMsg != null && !errMsg.equalsIgnoreCase("")){
 			out.println("<div id='sponsorAdDiv'><br><font color=red>" + errMsg + "</font></div>");
@@ -62,16 +62,16 @@
 	<br><br>
 	<table border="1" cellspacing="0" cellpadding="5">
 		<tr>
-			<th>分类编号</th>
-			<th>分类名称</th>
-			<th>相关操作</th>
+			<th>分類編號</th>
+			<th>分類名稱</th>
+			<th>相關操作</th>
 		</tr>
 		<c:forEach items="${categories}" var="category">
 			<tr>
 				<td align="center">${category.cid}</td>
 				<td>${category.cname}</td>
 				<td>
-					<input type = "button" value = "删除" onclick="javascript:if(confirm('确认删除${category.cname}?'))window.location.href='/deleteCategory/${category.cid}'">
+					<input type = "button" value = "删除" onclick="javascript:if(confirm('確認刪除${category.cname}?'))window.location.href='/deleteCategory/${category.cid}'">
 					<input type = "button" value = "更新" onclick="window.location.href='/editCategory/${category.cid}'">
 				</td>
 			</tr>

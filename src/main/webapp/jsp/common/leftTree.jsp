@@ -43,7 +43,7 @@
     <li <%if ("menuList".equalsIgnoreCase(_currentMenu)) {%> class='active'  <%}%>>
         <a href="/showMenus">
             <i class="icon-dashboard"></i>
-            <span class="menu-text"> 主菜单</span>
+            <span class="menu-text"> Main Menu</span>
         </a>
     </li>
 
@@ -56,17 +56,17 @@
         <ul class="submenu">
             <li <%if ("addMenu".equalsIgnoreCase(_currentMenu)) {%> class='active'  <%}%>>
                 <a href="/addMenu">
-                    <i class="icon-double-angle-right"></i>添加菜品
+                    <i class="icon-double-angle-right"></i>增加餐點
                 </a>
             </li>
             <li <%if ("cateList".equalsIgnoreCase(_currentMenu)) {%> class='active'  <%}%>>
                 <a href="/showCategories">
-                    <i class="icon-double-angle-right"></i>查看菜品分类
+                    <i class="icon-double-angle-right"></i>查看餐點分類
                 </a>
             </li>
             <li>
                 <a href="/addCategory">
-                    <i class="icon-double-angle-right"></i>添加菜品分类
+                    <i class="icon-double-angle-right"></i>增加餐點分類
                 </a>
             </li>
         </ul>

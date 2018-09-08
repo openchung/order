@@ -13,7 +13,7 @@
             <a class="navbar-brand">
                 <small>
                     <i class="icon-leaf"></i>
-                    家常菜
+                    速食通
                 </small>
             </a><!-- /.brand -->
         </div><!-- /.navbar-header -->
@@ -25,8 +25,8 @@
                     <a data-toggle="dropdown">
                         <img class="nav-user-photo" src="../assets/avatars/user.jpg" alt="Jason's Photo" />
                         <span class="user-info">
-                            <small>欢迎光临,</small>
-                            小同学
+                            <small>Welcome,</small>
+                            admin
                         </span>
                     </a>
                 </li>

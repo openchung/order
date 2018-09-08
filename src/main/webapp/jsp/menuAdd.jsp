@@ -7,8 +7,8 @@
 <%
 	CategoryManager categoryManager = (CategoryManager)session.getAttribute("categoryManager");
 
-	String thisPageleftMenuOpen = "adControl"; //设定left页中的打开状态下拉菜单
-	String thisPageleftMenu = "addMenu"; //设定left页中的菜单箭头标注位置
+	String thisPageleftMenuOpen = "adControl"; //設定left頁中的打開狀態下拉菜單
+	String thisPageleftMenu = "addMenu"; //設定left頁中的菜單箭頭標註位置
 	request.setAttribute("leftMenuOpen",thisPageleftMenuOpen);
 	request.setAttribute("leftMenu",thisPageleftMenu);
 %>
@@ -16,7 +16,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>添加菜品</title>
+		<title>增加餐點</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<!-- basic styles -->
 		<%@ include file="common/commonStyle.jsp"%>
@@ -58,7 +58,7 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-desktop"></i>
-								<a href="#">添加菜品</a>
+								<a href="#">增加餐點</a>
 							</li>
 						</ul><!-- .breadcrumb -->
 
@@ -71,22 +71,22 @@
 						<div class="col-xs-12">
 							<form class="form-horizontal" role="form" action="/saveMenu" method = "post">
 								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 菜品名称 </label>
+									<label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 餐點名稱 </label>
 
 									<div class="col-sm-9">
-										<input type="text" id="form-field-2" placeholder="菜名" class="col-xs-10 col-sm-5" name="mname"/>
+										<input type="text" id="form-field-2" placeholder="餐點" class="col-xs-10 col-sm-5" name="mname"/>
 										<input type="text" name="mid" value="-1" hidden/>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 菜品价格 </label>
+									<label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 餐點價格 </label>
 
 									<div class="col-sm-9">
-										<input type="text" id="form-field-2" placeholder="价钱" class="col-xs-10 col-sm-5" name="price"/>
+										<input type="text" id="form-field-2" placeholder="價錢" class="col-xs-10 col-sm-5" name="price"/>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 分类 </label>
+									<label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 分類 </label>
 
 									<div class="col-sm-5">
 										<select name="new_cid" class="form-control" id="form-field-select-1" data-width="20">
@@ -108,7 +108,7 @@
 									<div class="col-md-offset-3 col-md-9">
 										<button class="btn btn-info" type="submit">
 											<i class="icon-ok bigger-110"></i>
-											添加
+											增加
 										</button>
 
 										&nbsp; &nbsp; &nbsp;

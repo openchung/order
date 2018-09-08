@@ -8,7 +8,7 @@
 	String currentCid = request.getParameter("cid");
 	String currentUseCookie = request.getParameter("useCookie");
 
-	//获取当前站点所需要的cookie: ckUseCookie, ckCid
+	//獲取當前站點所需要的cookie: ckUseCookie, ckCid
 	Cookie[] cookies = request.getCookies();
 
 	Cookie ckUseCookie = null;
@@ -16,14 +16,14 @@
 	for (int i = 0; cookies != null && i < cookies.length; i++) {
 		if ("ckUseCookie".equals(cookies[i].getName())) {
 			ckUseCookie = cookies[i];
-			System.out.println("ckUseCookie 的值为" + ckUseCookie.getName() + " = " + ckUseCookie.getValue());
+			System.out.println("ckUseCookie 的值為" + ckUseCookie.getName() + " = " + ckUseCookie.getValue());
 		} else if ("ckCid".equals(cookies[i].getName())) {
 			ckCid = cookies[i];
 			System.out.println("ckCid 的值是" + ckCid.getName() + " = " + ckCid.getValue());
 		}
 	}
 
-	//如果ckUseCookie = on 并且当前的 currentCid 为空 则尝试提交相应的请求
+	//如果ckUseCookie = on 並且當前的 currentCid 為空 則嘗試提交相應的請求
 	if(ckUseCookie != null && ckUseCookie.getValue().equalsIgnoreCase("on") && currentCid == null){
 %>
 		<jsp:forward page="/showMenus">
@@ -36,13 +36,13 @@
 
 <html>
 <head>
-	<title>主菜单</title>
+	<title>Main Menu</title>
 </head>
 
 <body>
-	<h2>当前菜单</h2>
+	<h2>Current Menu</h2>
 	<form action = "/showMenus" method = "post">
-		<b>查询：</b>
+		<b>查詢：</b>
 		<select name="cid">
 			<option value="all"
 				<% if(currentCid == null){ out.println("selected"); }%>
@@ -64,11 +64,11 @@
 				}
 			%>
 		</select>
-		<input type = "submit", value = "提交查询"/>
+		<input type = "submit", value = "送出查詢"/>
 		&nbsp;|&nbsp;
-		<input type = "button" value = "添加菜品" onclick="window.location.href='/addMenu'">
+		<input type = "button" value = "增加餐點"" onclick="window.location.href='/addMenu'">
 		&nbsp;|&nbsp;
-		<input type = "button" value = "管理分类" onclick="window.location.href='/showCategories'">
+		<input type = "button" value = "管理分類" onclick="window.location.href='/showCategories'">
 		&nbsp;|&nbsp;
 		<input type = "checkbox" name = "useCookie"
 		<%
@@ -83,12 +83,12 @@
 
 	<table border="1" cellspacing="0" cellpadding="5">
 		<tr>
-			<th>点菜</th>
-			<th>菜品编号</th>
-			<th>菜品名称</th>
-			<th>分类ID</th>
-			<th>价钱</th>
-			<th>相关操作</th>
+			<th>點餐</th>
+			<th>餐點編號</th>
+			<th>餐點名稱</th>
+			<th>餐點ID</th>
+			<th>價錢</th>
+			<th>相關操作</th>
 		</tr>
 		<c:forEach items="${menus}" var="menu">
 			<tr>
@@ -101,7 +101,7 @@
 				</td>
 				<td align="center">${menu.price}</td>
 				<td>
-					<input type = "button" value = "删除" onclick="javascript:if(confirm('确认删除${menu.mname}'))window.location.href='/delete/${menu.mid}'">
+					<input type = "button" value = "删除" onclick="javascript:if(confirm('確認刪除${menu.mname}'))window.location.href='/delete/${menu.mid}'">
 					<input type = "button" value = "更新" onclick="window.location.href='/editMenu/${menu.mid}'">
 				</td>
 			</tr>

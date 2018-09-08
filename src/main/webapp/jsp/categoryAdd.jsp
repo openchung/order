@@ -3,7 +3,7 @@
 
 <html>
 <head>
-	<title>添加菜品分类</title>
+	<title>增加餐點分類</title>
 	<style>
 		input.none {border:1}
 		select.none {border:1}
@@ -11,11 +11,11 @@
 </head>
 
 <body>
-	<h2>添加菜品分类</h2>
+	<h2>增加餐點分類</h2>
 	<form action="/saveCategory" method = "post">
 		<table border="1" cellspacing="0" cellpadding="5">
 			<tr>
-				<th>菜品分类名称</th>
+				<th>餐點分類名稱</th>
 			</tr>
 			<tr>
 				<td>
@@ -25,7 +25,7 @@
 			</tr>
 		</table>
 		<br>
-		<input type = "submit" value = "添加"/>
+		<input type = "submit" value = "增加"/>
 		&nbsp;
 		<input type = "button" value = "取消" onclick="window.location.href='/showCategories'"/>
 	</form>

@@ -9,7 +9,7 @@
 
 <html>
 <head>
-	<title>添加菜品</title>
+	<title>增加餐點</title>
 	<style>
 		input.none {border:1}
 		select.none {border:1}
@@ -17,13 +17,13 @@
 </head>
 
 <body>
-	<h2>添加菜品</h2>
+	<h2>增加餐點</h2>
 	<form action="/saveMenu" method = "post">
 		<table border="1" cellspacing="0" cellpadding="5">
 			<tr>
-				<th>菜品名称</th>
-				<th>菜品分类</th>
-				<th>菜品单价</th>
+				<th>餐點名稱</th>
+				<th>餐點分類</th>
+				<th>餐點單價</th>
 			</tr>
 			<tr>
 				<td>
@@ -48,7 +48,7 @@
 			</tr>
 		</table>
 		<br>
-		<input type = "submit" value = "添加"/>
+		<input type = "submit" value = "增加"/>
 		&nbsp;
 		<input type = "button" value = "取消" onclick="window.location.href='/showMenus'"/>
 	</form>

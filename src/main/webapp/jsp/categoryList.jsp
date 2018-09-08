@@ -6,8 +6,8 @@
 <%
 	String errMsg = (String)session.getAttribute("errMsg");
 	session.setAttribute("errMsg",null);
-	String thisPageleftMenuOpen = "adControl"; //设定left页中的打开状态下拉菜单
-	String thisPageleftMenu = "cateList"; //设定left页中的菜单箭头标注位置
+	String thisPageleftMenuOpen = "adControl"; //設定left頁中的打開狀態下拉菜單
+	String thisPageleftMenu = "cateList"; //設定left頁中的菜單箭頭標註位置
 	request.setAttribute("leftMenuOpen",thisPageleftMenuOpen);
 	request.setAttribute("leftMenu",thisPageleftMenu);
 %>
@@ -15,7 +15,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>菜品分类</title>
+		<title>餐點分類</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<!-- basic styles -->
 		<%@ include file="common/commonStyle.jsp"%>
@@ -23,7 +23,7 @@
 
 	<body>
 		<SCRIPT LANGUAGE="JavaScript1.2">
-			adTime=5;  //关闭窗口等待的时间
+			adTime=5;  //關閉窗口等待的時間
 			chanceAd=1;
 			var ns=(document.layers);
 			var ie=(document.all);
@@ -99,7 +99,7 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-desktop"></i>
-								<a href="#">菜品分类</a>
+								<a href="#">餐點分類</a>
 
 							</li>
 						</ul><!-- .breadcrumb -->
@@ -111,16 +111,16 @@
 					<div class="table-responsive">
 					<table border="1" cellspacing="0" cellpadding="5" class="table table-striped table-bordered table-hover">
 						<tr>
-							<th>分类编号</th>
-							<th>分类名称</th>
-							<th>相关操作</th>
+							<th>分類編號</th>
+							<th>分類名稱</th>
+							<th>相關操作</th>
 						</tr>
 						<c:forEach items="${categories}" var="category">
 							<tr>
 								<td align="center">${category.cid}</td>
 								<td>${category.cname}</td>
 								<td>
-									<input type = "button" value = "删除" onclick="javascript:if(confirm('确认删除${category.cname}?'))window.location.href='/deleteCategory/${category.cid}'">
+									<input type = "button" value = "删除" onclick="javascript:if(confirm('確認刪除${category.cname}?'))window.location.href='/deleteCategory/${category.cid}'">
 									<input type = "button" value = "更新" onclick="window.location.href='/editCategory/${category.cid}'">
 								</td>
 							</tr>

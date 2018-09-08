@@ -3,7 +3,7 @@
 
 <html>
 <head>
-	<title>编辑菜品分类</title>
+	<title>編輯餐點分類</title>
 	<style>
 		input.none {border:none}
 		select.none {border:none}
@@ -11,13 +11,13 @@
 </head>
 
 <body>
-	<h2>编辑菜品分类</h2>
+	<h2>編輯餐點分類</h2>
 
 	<form action="/saveCategory" method = "post">
 		<table border="1" cellspacing="0" cellpadding="5">
 			<tr>
-				<th>菜品分类ID</th>
-				<th>菜品分类名称</th>
+				<th>餐點分類ID</th>
+				<th>餐點分類名稱</th>
 			</tr>
 			<tr>
 				<td><input class = "none" type="text" name="cid" value = "${category.cid}" readonly = "readonly"/></td>
@@ -25,7 +25,7 @@
 			</tr>
 		</table>
 		<br>
-		<input type = "submit" value = "提交修改"/>
+		<input type = "submit" value = "送出"/>
 		&nbsp;
 		<input type = "button" value = "取消" onclick="window.location.href='/showCategories'"/>
 	</form>
