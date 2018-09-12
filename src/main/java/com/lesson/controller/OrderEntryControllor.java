@@ -150,6 +150,7 @@ public class OrderEntryControllor {
                            @RequestParam(value = "price", required = true) float price) throws UnsupportedEncodingException {
         if (mname != null && !mname.equalsIgnoreCase("")) {
             mname = new String(mname.getBytes("ISO-8859-1"), "utf8");
+            mname = String.format("test-%s",mname);
         }
 
         if (mid >= 1) {
