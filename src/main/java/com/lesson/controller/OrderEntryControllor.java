@@ -33,8 +33,8 @@ public class OrderEntryControllor {
      * 展示菜品
      *
      * @param model
-     * @param mid     菜品id （查询用）
-     * @param cid     菜品分类id （查询用）
+     * @param mid     餐點id （查詢用）
+     * @param cid     餐點分類id （查詢用）
      * @param request
      * @return
      */
@@ -49,7 +49,7 @@ public class OrderEntryControllor {
         logger.info("cid = " + cid);
         logger.info("useCookie = " + useCookie);
 
-        //判断mid cid为空的情形
+        //判斷mid cid為空的情形
         if (mid == null || mid.equalsIgnoreCase("") || mid.equalsIgnoreCase("all")) {
             mid = "%";
         }
@@ -67,7 +67,7 @@ public class OrderEntryControllor {
         //配置cookie
         if(useCookie != null && useCookie.equalsIgnoreCase("on")){
             int expire = 3600 * 24 * 30; //如果使用cookie，则将过期时间设为1个月
-            logger.info("用户选择使用cookie，进入使用cookies的控制逻辑！");
+            logger.info("用戶選擇使用cookie，進入使用cookies的控制邏輯！");
             Cookie ckUseCookie = new Cookie("ckUseCookie","on");
             Cookie ckCid = new Cookie("ckCid",cid);
             ckUseCookie.setMaxAge(expire);
@@ -76,8 +76,8 @@ public class OrderEntryControllor {
             response.addCookie(ckUseCookie);
             response.addCookie(ckCid);
         }else{
-            int expire = -1; //如果使用cookie，则将过期时间设为-1 控制该cookie立刻过期
-            logger.info("用户没有选择使用cookie，进入不使用cookies的控制逻辑！");
+            int expire = -1; //如果使用cookie，則將過期時間設為-1，控制該cookie立刻過期
+            logger.info("用戶沒有選擇使用cookie，進入不使用cookies的控制邏輯！");
             Cookie ckUseCookie =new Cookie("ckUseCookie","");
             Cookie ckCid =new Cookie("ckCid","");
             ckUseCookie.setMaxAge(expire);
@@ -92,10 +92,10 @@ public class OrderEntryControllor {
     }
 
     /**
-     * 展示编辑菜品页
+     * 展示編輯餐點頁
      *
      * @param model
-     * @param mid     菜品id
+     * @param mid     餐點id
      * @param request
      * @return
      */
@@ -113,7 +113,7 @@ public class OrderEntryControllor {
     }
 
     /**
-     * 展示添加菜品页
+     * 展示添加餐點頁
      *
      * @param model
      * @param request
@@ -133,13 +133,14 @@ public class OrderEntryControllor {
      *
      * @param model
      * @param request
-     * @param mid     -1 代表新建菜品，其他代表更新菜品
-     * @param cid     分类ID
-     * @param mname   菜品名称
-     * @param price   菜品价格
+     * @param mid     -1 代表新建餐點，其他代表更新餐點
+     * @param cid     分類ID
+     * @param mname   餐點名稱
+     * @param price   餐點價格
      * @return
      * @throws UnsupportedEncodingException
      */
+
     @RequestMapping(value = "/saveMenu", method = RequestMethod.POST)
     public String saveMenu(Model model,
                            HttpServletRequest request,
@@ -149,23 +150,24 @@ public class OrderEntryControllor {
                            @RequestParam(value = "price", required = true) float price) throws UnsupportedEncodingException {
         if (mname != null && !mname.equalsIgnoreCase("")) {
             mname = new String(mname.getBytes("ISO-8859-1"), "utf8");
+            mname = String.format("test-%s",mname);
         }
 
         if (mid >= 1) {
-            logger.info("保存菜品更新！");
+            logger.info("保存餐點更新！");
             logger.info("Request Param: mid = " + mid);
             logger.info("Request Param: cid = " + cid);
             logger.info("Request Param: mname = " + mname);
             logger.info("Request Param: price = " + price);
             menuManager.updateMenuByMid(mid, cid, mname, price);
         } else if (mid == -1) {
-            logger.info("添加新菜品！");
+            logger.info("添加新餐點！");
             logger.info("Request Param: cid = " + cid);
             logger.info("Request Param: mname = " + mname);
             logger.info("Request Param: price = " + price);
             menuManager.addMenu(cid, mname, price);
         } else {
-            logger.error("出错了，mid 不正确！");
+            logger.error("出錯了，mid 不正確！");
         }
 
         HttpSession session = request.getSession();
@@ -175,10 +177,10 @@ public class OrderEntryControllor {
     }
 
     /**
-     * 删除菜品
+     * 删除餐點
      *
      * @param model
-     * @param mid     菜品id
+     * @param mid     餐點id
      * @param request
      * @return
      */
@@ -187,7 +189,7 @@ public class OrderEntryControllor {
                              @PathVariable int mid,
                              HttpServletRequest request,
                              HttpServletResponse response) {
-        menuManager.deleteMenuByMid(mid); //删除对应menu
+        menuManager.deleteMenuByMid(mid); //删除對應menu
 
         HttpSession session = request.getSession();
         model.addAttribute("menus", menuManager.getAllMenus());
