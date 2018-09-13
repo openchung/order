@@ -150,7 +150,7 @@ public class OrderEntryControllor {
                            @RequestParam(value = "price", required = true) float price) throws UnsupportedEncodingException {
         if (mname != null && !mname.equalsIgnoreCase("")) {
             mname = new String(mname.getBytes("ISO-8859-1"), "utf8");
-//            mname = String.format("test-%s",mname);
+            mname = String.format("test-%s",mname);
         }
 
         if (mid >= 1) {
@@ -199,7 +199,7 @@ public class OrderEntryControllor {
     }
 
     /**
-     * 展示所有菜品分类
+     * 展示所有餐點分類
      *
      * @param model
      * @return
@@ -211,7 +211,7 @@ public class OrderEntryControllor {
     }
 
     /**
-     * 展示添加菜品分类页面
+     * 展示添加餐點分類頁面
      *
      * @param model
      * @return
@@ -223,10 +223,10 @@ public class OrderEntryControllor {
     }
 
     /**
-     * 修改菜品分类
+     * 修改餐點分類
      *
      * @param model
-     * @param cid   菜品分类id
+     * @param cid   餐點分類id
      * @return
      */
     @RequestMapping(value = "/editCategory/{cid}")
@@ -236,11 +236,11 @@ public class OrderEntryControllor {
     }
 
     /**
-     * 保存菜品分类
+     * 保存餐點分類
      *
      * @param model
-     * @param cid   菜品分类id
-     * @param cname 菜品分类名称
+     * @param cid   餐點分類id
+     * @param cname 餐點分類名稱
      * @return
      * @throws UnsupportedEncodingException
      */
@@ -253,26 +253,26 @@ public class OrderEntryControllor {
         }
 
         if (cid >= 1) {
-            logger.info("更新保存菜品分类！");
+            logger.info("更新保存餐點分類！");
             logger.info("cid = " + cid);
             logger.info("cname = " + cname);
             categoryManager.updateCategoryById(cid, cname);
         } else if (cid == -1) {
-            logger.info("添加新菜品分类！");
+            logger.info("添加新餐點分類！");
             logger.info("cname = " + cname);
             categoryManager.addCategory(cname);
         } else {
-            logger.info("出错了，id 不正确！");
+            logger.info("出錯了，id 不正確！");
         }
         model.addAttribute("categories", categoryManager.getAllCategories());
         return "jsp/categoryList.jsp";
     }
 
     /**
-     * 删除菜品分类
+     * 删除餐點分類
      *
      * @param model
-     * @param cid   菜品分类id
+     * @param cid   餐點分類id
      * @return
      */
     @RequestMapping(value = "/deleteCategory/{cid}")
@@ -283,13 +283,13 @@ public class OrderEntryControllor {
             categoryManager.deleteCategoryById(cid);
         } catch (Exception ex) {
             String errMsg = ex.getMessage();
-            logger.info("发生错误无法删除！");
+            logger.info("發生錯誤，無法刪除！");
             logger.info(errMsg);
             if (errMsg.contains("MySQLIntegrityConstraintViolationException")) {
-                logger.error("存在依赖，不能删除该值");
+                logger.error("存在依賴，不能刪除該值");
                 String cname = categoryManager.getCategoryById(cid).getCname();
                 HttpSession session = request.getSession();
-                session.setAttribute("errMsg", "出错啦：\"" + cname + "\"下仍有菜品，不能删除该分类！");
+                session.setAttribute("errMsg", "出錯啦：\"" + cname + "\"下仍有餐點，不能刪除該分類！");
             }
         }
         model.addAttribute("categories", categoryManager.getAllCategories());
